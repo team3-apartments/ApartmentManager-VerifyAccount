@@ -2,7 +2,6 @@ package com.qa.apartmentManager.rest;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 
 
@@ -25,6 +24,7 @@ public class VerifyAccountRest {
 	private String checkPassword(String pass) {
 		File file = new File("src\\main\\resources\\secrets.txt");
 		try {
+			@SuppressWarnings("resource")
 			BufferedReader br = new BufferedReader(new FileReader(file));
 			String found;
 			while((found = br.readLine()) != null) {
